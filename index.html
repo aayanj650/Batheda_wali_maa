@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बाठेड़ा वाली माँ | Batheda Wali Maa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Noto+Sans+Devanagari:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #FFD700;
+            --dark-gold: #B8860B;
+            --deep-red: #8B0000;
+            --maroon: #4a0404;
+            --black: #0a0a0a;
+            --cream: #FFF8DC;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background: var(--black);
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--dark-gold);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 5%;
+            background: rgba(10, 10, 10, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary-gold), #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 5% 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(139, 0, 0, 0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .om-symbol {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #FFA500 50%, var(--primary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-quote {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255, 248, 220, 0.9);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            border-left: 3px solid var(--primary-gold);
+            border-right: 3px solid var(--primary-gold);
+            background: rgba(139, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .hero-quote .hindi {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--deep-red), var(--maroon));
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: var(--black);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: linear-gradient(to bottom, var(--black), rgba(74, 4, 4, 0.3));
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--deep-red), var(--maroon));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .service-card p {
+            color: rgba(255, 248, 220, 0.8);
+            line-height: 1.6;
+        }
+
+        .service-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.3rem 1rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--primary-gold);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-gold);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 6rem 5%;
+            background: var(--black);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--primary-gold);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+        }
+
+        /* Schedule Section */
+        .schedule {
+            padding: 6rem 5%;
+            background: linear-gradient(to bottom, rgba(74, 4, 4, 0.3), var(--black));
+        }
+
+        .schedule-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .schedule-card {
+            background: rgba(139, 0, 0, 0.2);
+            border: 2px solid var(--dark-gold);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-gold);
+        }
+
+        .schedule-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .schedule-list {
+            list-style: none;
+        }
+
+        .schedule-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(255, 248, 220, 0.9);
+        }
+
+        .schedule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-list i {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        /* Instagram Feed Section */
+        .instagram {
+            padding: 6rem 5%;
+            background: var(--black);
+            text-align: center;
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .insta-item {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            padding: 3px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .insta-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .insta-item-inner {
+            background: var(--black);
+            border-radius: 8px;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .insta-item i {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .insta-item p {
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .follow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .follow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(220, 39, 67, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to top, var(--maroon), var(--black));
+            padding: 4rem 5% 2rem;
+            border-top: 2px solid var(--dark-gold);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-gold);
+            margin-bottom: 2rem;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-text {
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid var(--primary-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-gold);
+            color: var(--black);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .copyright {
+            color: rgba(255, 248, 220, 0.6);
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .diya {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #ff6b35 0%, #f7931e 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(20px);
+            animation: flicker 3s ease-in-out infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-quote {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    
+    <!-- Decorative Diyas -->
+    <div class="decoration diya" style="top: 10%; left: 5%;"></div>
+    <div class="decoration diya" style="top: 20%; right: 10%; animation-delay: 1s;"></div>
+    <div class="decoration diya" style="bottom: 20%; left: 8%; animation-delay: 2s;"></div>
+    <div class="decoration diya" style="bottom: 30%; right: 5%; animation-delay: 0.5s;"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="/mnt/kimi/upload/image(2).png" alt="Batheda Wali Maa Logo">
+                <span class="logo-text">Batheda Wali Maa</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <div class="om-symbol">ॐ</div>
+            <h1>Batheda Wali Maa</h1>
+            <p class="hero-subtitle">बाठेड़ा वाली माँ की जय</p>
+            <div class="hero-quote">
+                <span class="hindi">"अब सौंप दिया इस जीवन को सारा भार आपके हाथों में माँ"</span>
+                <span class="hindi">"काली कृपा सहायते 🚩"</span>
+                <span>Now I have surrendered this life and all its burdens into Your hands, Mother. With the grace of Kali Maa...</span>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://instagram.com/batheda_wali_maa" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-instagram"></i> Follow on Instagram
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <i class="fas fa-om"></i> Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-title fade-in">
+            <h2>Our Services</h2>
+            <p style="color: rgba(255,248,220,0.7); margin-top: 1rem;">Divine offerings and spiritual connections</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3>Sunday Darshan</h3>
+                <p>Join us every Sunday for special darshan of Maa Kalika. Experience divine blessings and spiritual peace.</p>
+                <span class="service-badge">Every Sunday</span>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>New Reels</h3>
+                <p>Watch our latest spiritual reels every Sunday. Short divine moments and teachings from the temple.</p>
+                <span class="service-badge">Weekly Updates</span>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-praying-hands"></i>
+                </div>
+                <h3>Navratri Darshan</h3>
+                <p>Special 9 days of Navratri darshan with elaborate decorations, aarti, and prasad distribution.</p>
+                <span class="service-badge">9 Days Festival</span>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>Function Updates</h3>
+                <p>Stay updated with all temple functions, special pujas, and community events throughout the year.</p>
+                <span class="service-badge">Real-time Updates</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-title fade-in">
+            <h2>Divine Gallery</h2>
+            <p style="color: rgba(255,248,220,0.7); margin-top: 1rem;">Glimpses of Maa Kalika's blessings</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <img src="/mnt/kimi/upload/image(1).png" alt="Kalika Mata">
+                <div class="gallery-overlay">
+                    <h4>Maa Kalika Darshan</h4>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/886feffde0e9eabcc3f6e1f67d8129503003fc82.jpg" alt="Temple Decoration">
+                <div class="gallery-overlay">
+                    <h4>Temple Decorations</h4>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.statuestudio.com/65deb43500ae5a5929ae52982c6b3afa03c0e2e4.jpg" alt="Temple Bell">
+                <div class="gallery-overlay">
+                    <h4>Sacred Bells</h4>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/i.etsystatic.com/fcef22552160603ccac764c059c86d4a347997a5.jpg" alt="Marigold Decoration">
+                <div class="gallery-overlay">
+                    <h4>Flower Decorations</h4>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://kimi-web-img.moonshot.cn/img/rukminim2.flixcart.com/86e1d2c00e2be70445d83c171be690e1859c6c0f.jpeg" alt="Kali Mata Frame">
+                <div class="gallery-overlay">
+                    <h4>Maa Kali Blessings</h4>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="/mnt/kimi/upload/image(2).png" alt="Page Logo">
+                <div class="gallery-overlay">
+                    <h4>Our Logo</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <div class="section-title fade-in">
+            <h2>Program Schedule</h2>
+            <p style="color: rgba(255,248,220,0.7); margin-top: 1rem;">Mark your calendar for divine gatherings</p>
+        </div>
+        
+        <div class="schedule-container">
+            <div class="schedule-card fade-in">
+                <h3><i class="fas fa-calendar-week"></i> Weekly Programs</h3>
+                <ul class="schedule-list">
+                    <li>
+                        <i class="fas fa-sun"></i>
+                        <div>
+                            <span class="highlight">Every Sunday</span><br>
+                            Special Darshan & New Reel Release
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="highlight">Morning Aarti</span><br>
+                            6:00 AM - 7:00 AM
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-moon"></i>
+                        <div>
+                            <span class="highlight">Evening Aarti</span><br>
+                            7:00 PM - 8:00 PM
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="schedule-card fade-in">
+                <h3><i class="fas fa-star"></i> Special Events</h3>
+                <ul class="schedule-list">
+                    <li>
+                        <i class="fas fa-praying-hands"></i>
+                        <div>
+                            <span class="highlight">Navratri Festival</span><br>
+                            9 Days Special Darshan & Functions
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <div>
+                            <span class="highlight">Reel Updates</span><br>
+                            Every Sunday New Content
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-bell"></i>
+                        <div>
+                            <span class="highlight">Function Updates</span><br>
+                            Real-time Notifications on Instagram
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram" id="contact">
+        <div class="section-title fade-in">
+            <h2>Connect With Us</h2>
+            <p style="color: rgba(255,248,220,0.7); margin-top: 1rem;">Join our spiritual community on Instagram</p>
+        </div>
+        
+        <div class="insta-grid fade-in">
+            <div class="insta-item">
+                <div class="insta-item-inner">
+                    <i class="fab fa-instagram"></i>
+                    <p>17.9K Followers</p>
+                    <small style="color: rgba(255,248,220,0.6);">Growing Community</small>
+                </div>
+            </div>
+            <div class="insta-item">
+                <div class="insta-item-inner">
+                    <i class="fas fa-images"></i>
+                    <p>234 Posts</p>
+                    <small style="color: rgba(255,248,220,0.6);">Divine Content</small>
+                </div>
+            </div>
+            <div class="insta-item">
+                <div class="insta-item-inner">
+                    <i class="fas fa-heart"></i>
+                    <p>Daily Blessings</p>
+                    <small style="color: rgba(255,248,220,0.6);">Spiritual Upliftment</small>
+                </div>
+            </div>
+            <div class="insta-item">
+                <div class="insta-item-inner">
+                    <i class="fas fa-users"></i>
+                    <p>776 Following</p>
+                    <small style="color: rgba(255,248,220,0.6);">Sacred Connections</small>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://instagram.com/batheda_wali_maa" target="_blank" class="follow-btn fade-in">
+            <i class="fab fa-instagram"></i> Follow @batheda_wali_maa
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="/mnt/kimi/upload/image(2).png" alt="Logo" class="footer-logo">
+            <p class="footer-text">बाठेड़ा वाली माँ की जय<br>Jai Mata Di</p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/batheda_wali_maa" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" onclick="alert('Coming soon!')">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" onclick="alert('Coming soon!')">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" onclick="alert('Coming soon!')">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 Batheda Wali Maa. All Rights Reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">ॐ श्री महा कालिकायै नमः 🙏</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle Animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = `rgba(255, 215, 0, ${Math.random() * 0.5})`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function init() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Gallery Lightbox Effect
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                `;
+                
+                const clone = img.cloneNode();
+                clone.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border: 3px solid #FFD700;
+                    border-radius: 10px;
+                    box-shadow: 0 0 50px rgba(255,215,0,0.5);
+                    transform: scale(0.8);
+                    transition: transform 0.3s;
+                `;
+                
+                overlay.appendChild(clone);
+                document.body.appendChild(overlay);
+                
+                setTimeout(() => {
+                    overlay.style.opacity = '1';
+                    clone.style.transform = 'scale(1)';
+                }, 10);
+                
+                overlay.addEventListener('click', () => {
+                    overlay.style.opacity = '0';
+                    clone.style.transform = 'scale(0.8)';
+                    setTimeout(() => overlay.remove(), 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
