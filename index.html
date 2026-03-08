@@ -73,11 +73,12 @@
         }
 
         .logo img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: 3px solid var(--primary-gold);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            object-fit: cover;
         }
 
         .logo-text {
@@ -381,15 +382,17 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            aspect-ratio: 1;
+            aspect-ratio: 3/4;
             cursor: pointer;
             border: 2px solid transparent;
             transition: all 0.3s;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
         }
 
         .gallery-item:hover {
             border-color: var(--primary-gold);
             transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
         }
 
         .gallery-item img {
@@ -408,7 +411,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
             padding: 2rem 1rem 1rem;
             transform: translateY(100%);
             transition: transform 0.3s;
@@ -421,6 +424,13 @@
         .gallery-overlay h4 {
             color: var(--primary-gold);
             font-size: 1.2rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 248, 220, 0.8);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         /* Schedule Section */
@@ -493,7 +503,7 @@
             font-weight: 600;
         }
 
-        /* Instagram Feed Section */
+        /* Instagram Section */
         .instagram {
             padding: 6rem 5%;
             background: var(--black);
@@ -576,12 +586,13 @@
         }
 
         .footer-logo {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 4px solid var(--primary-gold);
             margin-bottom: 2rem;
             box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+            object-fit: cover;
         }
 
         .footer-text {
@@ -668,6 +679,10 @@
             .section-title h2 {
                 font-size: 1.8rem;
             }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Loading Animation */
@@ -680,6 +695,18 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Special caption for Maa Jagdamba */
+        .maa-jagdamba-caption {
+            background: linear-gradient(45deg, var(--deep-red), var(--maroon));
+            color: var(--primary-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+            border: 1px solid var(--primary-gold);
         }
     </style>
 </head>
@@ -696,7 +723,8 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="/mnt/kimi/upload/image(2).png" alt="Batheda Wali Maa Logo">
+                <!-- NEW LOGO UPDATED -->
+                <img src="/mnt/kimi/upload/image(6).png" alt="Batheda Wali Maa Logo">
                 <span class="logo-text">Batheda Wali Maa</span>
             </div>
             <ul class="nav-links">
@@ -777,7 +805,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section - UPDATED WITH NEW IMAGES -->
     <section class="gallery" id="gallery">
         <div class="section-title fade-in">
             <h2>Divine Gallery</h2>
@@ -785,40 +813,58 @@
         </div>
         
         <div class="gallery-grid">
+            <!-- Image 3: Maa Jagdamba with all three deities -->
+            <div class="gallery-item fade-in">
+                <img src="/mnt/kimi/upload/image(3).png" alt="Maa Jagdamba">
+                <div class="gallery-overlay">
+                    <h4>माँ जगदम्बा</h4>
+                    <p>Maa Jagdamba with divine companions</p>
+                    <span class="maa-jagdamba-caption">Special Darshan</span>
+                </div>
+            </div>
+
+            <!-- Image 4: Maari Maa close-up -->
+            <div class="gallery-item fade-in">
+                <img src="/mnt/kimi/upload/image(4).png" alt="Maari Maa">
+                <div class="gallery-overlay">
+                    <h4>मारी माँ</h4>
+                    <p>Beautiful adorned Maa Kalika</p>
+                </div>
+            </div>
+
+            <!-- Image 5: Maa with light blue saree -->
+            <div class="gallery-item fade-in">
+                <img src="/mnt/kimi/upload/image(5).png" alt="Maa Blessings">
+                <div class="gallery-overlay">
+                    <h4>Maa 💕</h4>
+                    <p>Divine blessings from Batheda Wali Maa</p>
+                </div>
+            </div>
+
+            <!-- Image 1: Original Kalika Mata -->
             <div class="gallery-item fade-in">
                 <img src="/mnt/kimi/upload/image(1).png" alt="Kalika Mata">
                 <div class="gallery-overlay">
-                    <h4>Maa Kalika Darshan</h4>
+                    <h4>माँ कालिका</h4>
+                    <p>Original temple deity</p>
                 </div>
             </div>
+
+            <!-- Image 2: Logo in gallery too -->
             <div class="gallery-item fade-in">
-                <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/886feffde0e9eabcc3f6e1f67d8129503003fc82.jpg" alt="Temple Decoration">
+                <img src="/mnt/kimi/upload/image(6).png" alt="Official Logo">
                 <div class="gallery-overlay">
-                    <h4>Temple Decorations</h4>
+                    <h4>Official Logo</h4>
+                    <p>Jay Maa Kalika</p>
                 </div>
             </div>
+
+            <!-- Keeping one decorative temple image for ambiance -->
             <div class="gallery-item fade-in">
                 <img src="https://kimi-web-img.moonshot.cn/img/www.statuestudio.com/65deb43500ae5a5929ae52982c6b3afa03c0e2e4.jpg" alt="Temple Bell">
                 <div class="gallery-overlay">
-                    <h4>Sacred Bells</h4>
-                </div>
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://kimi-web-img.moonshot.cn/img/i.etsystatic.com/fcef22552160603ccac764c059c86d4a347997a5.jpg" alt="Marigold Decoration">
-                <div class="gallery-overlay">
-                    <h4>Flower Decorations</h4>
-                </div>
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://kimi-web-img.moonshot.cn/img/rukminim2.flixcart.com/86e1d2c00e2be70445d83c171be690e1859c6c0f.jpeg" alt="Kali Mata Frame">
-                <div class="gallery-overlay">
-                    <h4>Maa Kali Blessings</h4>
-                </div>
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="/mnt/kimi/upload/image(2).png" alt="Page Logo">
-                <div class="gallery-overlay">
-                    <h4>Our Logo</h4>
+                    <h4>Sacred Temple Bell</h4>
+                    <p>Traditional brass bell</p>
                 </div>
             </div>
         </div>
@@ -934,7 +980,8 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="/mnt/kimi/upload/image(2).png" alt="Logo" class="footer-logo">
+            <!-- NEW LOGO IN FOOTER -->
+            <img src="/mnt/kimi/upload/image(6).png" alt="Logo" class="footer-logo">
             <p class="footer-text">बाठेड़ा वाली माँ की जय<br>Jai Mata Di</p>
             
             <div class="social-links">
@@ -1080,6 +1127,7 @@
                     cursor: pointer;
                     opacity: 0;
                     transition: opacity 0.3s;
+                    padding: 20px;
                 `;
                 
                 const clone = img.cloneNode();
@@ -1091,6 +1139,7 @@
                     box-shadow: 0 0 50px rgba(255,215,0,0.5);
                     transform: scale(0.8);
                     transition: transform 0.3s;
+                    object-fit: contain;
                 `;
                 
                 overlay.appendChild(clone);
